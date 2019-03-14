@@ -2,7 +2,7 @@ package pa_1;
 
 import java.util.Arrays;
 /**
- * Team members:
+ * Team members: Caining Wang
  * @author John Doe
  * @author Jane Doe
  * 
