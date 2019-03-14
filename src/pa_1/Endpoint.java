@@ -8,7 +8,7 @@ package pa_1;
  * Endpoint class for Node.
  */
 public class Endpoint {
-	
+	int endpoint;
 	/**
 	 * returns the endpoint value.  For example if the
 	 * End point object represents the left end point of the 
@@ -17,6 +17,6 @@ public class Endpoint {
 	 */
 	public int getValue() {
 		//TODO: Modify it accordingly.
-		return 1;
+		return endpoint;
 	}
 }
