@@ -1,6 +1,7 @@
 package pa_1;
 /**
- * Team members: Nick Leslie
+ * @author Nick Leslie
+ * @author Saishreya Shankar
  * @author John Doe
  * @author Jane Doe
  * 
