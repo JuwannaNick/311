@@ -1,6 +1,6 @@
 package pa_1;
 /**
- * Team members:
+ * Team members: Nick Leslie
  * @author John Doe
  * @author Jane Doe
  * 
