@@ -149,19 +149,20 @@ public class Node {
 			return 0;	
 		}
 		else {
+		//first set to the left node
 		int maxVal = this.getLeft().getMaxVal();
-		emax=this.getLeft().getEndpoint();
+		
 		
 		int thisNode = this.getLeft().getVal() + this.getP();
 		int rightNode = thisNode + this.getRight().getMaxVal();
 		
 			if(maxVal<thisNode) {
 				maxVal = thisNode;
-				emax=this.getEndpoint();
+				
 			}
 			if(maxVal<rightNode) {
 				maxVal = rightNode;
-				emax=this.getRight().getEndpoint();
+				
 			}
 			return maxVal;
 		}
@@ -182,7 +183,25 @@ public class Node {
 	 * @return
 	 */
 	public Endpoint getEmax() {
-		return emax;
+		if(isNil) {
+			return this.getEndpoint();	
+		}
+		else {
+		//first set to the left node
+		int maxVal = this.getLeft().getMaxVal();
+		emax=this.getLeft().getEndpoint();
+		
+		int thisNode = this.getLeft().getVal() + this.getP();
+		int rightNode = thisNode + this.getRight().getMaxVal();
+		
+			if(maxVal<thisNode) {
+				emax=this.getEndpoint();
+			}
+			if(maxVal<rightNode) {
+				emax=this.getRight().getEndpoint();
+			}
+			return emax;
+		}
 	}
 	
 	/**
