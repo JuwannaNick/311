@@ -12,9 +12,85 @@ public class Node {
 	 * Returns the parent of this node.
 	 * @return
 	 */
+	
+	
+	// left and right children of the Node and parent of Node
+    private Node left, right, parent;  
+    
+    // 0 means red and 1 means black
+    private int color;    
+    
+    //maintains size of subtree count
+    private int size; 
+    
+    //stores the Endpoint's Value
+    private int key;
+    
+    //Endpoint that this node represents
+    private Endpoint endpoint;
+    
+    //True if the node is a nil node and false if it is not a nil node
+    private boolean isNil;
+    
+    //p-value: true = left Endpoint and false=right Endpoint
+    boolean p;
+    
+    //emax endpoint: the side of which max val originates from
+    Endpoint emax;
+
+    public Node(Endpoint e, int color, int size, boolean p) {
+    	this.isNil= false;
+    	this.endpoint = e;
+        this.key = e.getValue();
+        this.color = color;
+        this.size = size;
+        this.p = p;
+        
+    }
+    
+    public Node(Endpoint e, Node parent) {
+    	this.isNil= true;
+    	this.endpoint = e;
+        this.key = 0;
+        this.color = 1;
+        this.size = 0;
+        this.setParent(parent);
+        this.setLeft(null);
+        this.setRight(null);
+    }
+    
+    /**
+	 * links the node's left child.
+	 * @param Node left
+	 */
+    public void setLeft(Node left) {
+    	this.left = left;
+    	this.left.setParent(this);
+    }
+    
+    /**
+	 * links the node's right child.
+	 * @param Node right
+	 */
+    public void setRight(Node right) {
+    	this.right = right;
+    	this.right.setParent(this);
+    }
+    
+    /**
+	 * links the node's parent.
+	 * @param Node parent
+	 */
+    public void setParent(Node parent) {
+    	this.parent = parent;
+    }
+    
+    /**
+	 * Returns the parent.
+	 * @return
+	 */
 	public Node getParent() {
-		//TODO: Modify it accordingly.
-		return null;
+		return parent;
 	}
 	
 	/**
@@ -22,8 +98,7 @@ public class Node {
 	 * @return
 	 */
 	public Node getLeft() {
-		//TODO: Modify it accordingly.
-		return null;
+		return left;
 	}
 		
 	/**
@@ -31,8 +106,7 @@ public class Node {
 	 * @return
 	 */
 	public Node getRight() {
-		//TODO: Modify it accordingly.
-		return null;
+		return right;
 	}
 	
 	/**
@@ -40,17 +114,17 @@ public class Node {
 	 * @return
 	 */
 	public int getKey() {
-		//TODO: Modify it accordingly.
-		return 0;
+		
+		return this.key;
 	}
 	
 	/**
-	 * Returns the value of the functionpbased on this endpoint.
+	 * Returns the value of the function-p-based on this endpoint.
 	 * @return
 	 */
 	public int getP() {
-		//TODO: Modify it accordingly.
-		return 0;
+		if(p) {return +1;}
+		return -1;
 	}
 	
 	/**
@@ -58,8 +132,12 @@ public class Node {
 	 * @return
 	 */
 	public int getVal() {
-		//TODO: Modify it accordingly.
-		return 0;
+		if(isNil) {
+			return 0;
+		}
+		else
+			return this.left.getVal() + this.right.getVal() + this.getP();
+		
 	}
 	
 	/**
@@ -67,8 +145,27 @@ public class Node {
 	 * @return
 	 */
 	public int getMaxVal() {
-		//TODO: Modify it accordingly.
-		return 0;
+		if(isNil) {
+			return 0;	
+		}
+		else {
+		//first set to the left node
+		int maxVal = this.getLeft().getMaxVal();
+		
+		
+		int thisNode = this.getLeft().getVal() + this.getP();
+		int rightNode = thisNode + this.getRight().getMaxVal();
+		
+			if(maxVal<thisNode) {
+				maxVal = thisNode;
+				
+			}
+			if(maxVal<rightNode) {
+				maxVal = rightNode;
+				
+			}
+			return maxVal;
+		}
 	}
 	
 	/**
@@ -76,8 +173,7 @@ public class Node {
 	 * @return
 	 */
 	public Endpoint getEndpoint() {
-		//TODO: Modify it accordingly.
-		return null;
+		return this.endpoint;
 	}
 	
 	/**
@@ -87,8 +183,25 @@ public class Node {
 	 * @return
 	 */
 	public Endpoint getEmax() {
-		//TODO: Modify it accordingly.
-		return null;
+		if(isNil) {
+			return this.getEndpoint();	
+		}
+		else {
+		//first set to the left node
+		int maxVal = this.getLeft().getMaxVal();
+		emax=this.getLeft().getEndpoint();
+		
+		int thisNode = this.getLeft().getVal() + this.getP();
+		int rightNode = thisNode + this.getRight().getMaxVal();
+		
+			if(maxVal<thisNode) {
+				emax=this.getEndpoint();
+			}
+			if(maxVal<rightNode) {
+				emax=this.getRight().getEndpoint();
+			}
+			return emax;
+		}
 	}
 	
 	/**
@@ -96,8 +209,7 @@ public class Node {
 	 * @return
 	 */
 	public int getColor() {
-		//TODO: Modify it accordingly.
-		return 0;
+		return color;
 	}
 	
 	//Add more functions as  you see fit.
