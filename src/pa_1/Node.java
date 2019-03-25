@@ -25,7 +25,7 @@ public class Node {
 		//TODO: Modify it accordingly.
 		return null;
 	}
-	
+		
 	/**
 	 * Returns the right child.
 	 * @return

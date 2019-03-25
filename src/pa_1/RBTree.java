@@ -1,13 +1,16 @@
 package pa_1;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Team members:
- * @author John Doe
+ * @author Nicholas Leslie
  * @author Jane Doe
  * 
  * RBTree class, maintains operations on RBTree.
  */
 public class RBTree {
 	
+	private Node root;
 	/**
 	 * RB Tree constructor. It initializes nil node as well.
 	 */
