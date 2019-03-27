@@ -3,27 +3,28 @@ package pa_1;
 import java.util.ArrayList;
 import java.util.List;
 import pa_1.Node;
+
 /**
- * @author Nicholas Leslie 
- * RBTree class, maintains operations on RBTree.
+ * @author Nicholas Leslie RBTree class, maintains operations on RBTree.
  */
 public class RBTree {
-	
-	private Node root;
-	private Node current;
-	private Node parent;
-	private Node left;
-	private Node right;
-	
+
 	private Node nil;
+	private Node root;
+	private int height;
 
 	/**
 	 * RB Tree constructor. It initializes nil node as well.
 	 */
 	public RBTree() {
-		RBTree t = new RBTree();
-		root = null;
+		private ArrayList<RBTree> T =  new ArrayList<RBTree>();
+		nil.setisNil(0);
+		root = nil;
+
 		
+
+		// done
+
 	}
 
 	/**
@@ -32,8 +33,9 @@ public class RBTree {
 	 * @return
 	 */
 	public Node getRoot() {
-		// TODO: Modify it accordingly.
 		return root;
+
+		// done
 	}
 
 	/**
@@ -43,10 +45,7 @@ public class RBTree {
 	 */
 	public Node getNILNode() {
 		// TODO: Modify it accordingly.
-		if (RBTree = null) {
-			
-		}
-		return null;
+		return nil;
 	}
 
 	/**
@@ -66,7 +65,19 @@ public class RBTree {
 	 */
 	public int getHeight() {
 		// TODO: Modify it accordingly.
-		return 0;
+		return height;
+	}
+	
+	public void insertNode() {
+		//cover the four rules.
+	}
+	
+	public void rotateNode() {
+		
+	}
+	
+	public void deleteNode() {
+		
 	}
 
 	// Add more functions as you see fit.
