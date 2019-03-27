@@ -9,22 +9,19 @@ import pa_1.Node;
  */
 public class RBTree {
 
-	private Node nil;
 	private Node root;
+	private Node nil;
 	private int height;
+	private int size;
+	private ArrayList<Node> nodes;
 
 	/**
 	 * RB Tree constructor. It initializes nil node as well.
 	 */
 	public RBTree() {
-		private ArrayList<RBTree> T =  new ArrayList<RBTree>();
-		nil.setisNil(0);
-		root = nil;
-
-		
-
-		// done
-
+		nil.setisNil(true);
+		nodes =  new ArrayList<Node>();
+		root = null;
 	}
 
 	/**
@@ -55,7 +52,7 @@ public class RBTree {
 	 */
 	public int getSize() {
 		// TODO: Modify it accordingly.
-		return 0;
+		return nodes.size();
 	}
 
 	/**
@@ -65,14 +62,28 @@ public class RBTree {
 	 */
 	public int getHeight() {
 		// TODO: Modify it accordingly.
-		return height;
+		return (int) (Math.log(nodes.size())/Math.log(2.0));
 	}
 	
-	public void insertNode() {
-		//cover the four rules.
+	public void insertNode(Node node) {
+		if(root == null) {
+			node.setColor(1);
+			nodes.add(node);
+			root = nodes.get(0);
+		}
+		else {
+			nodes.add(node);
+			checkRotate();
+		}
+	}
+	
+	public void checkRotate() {
+		
 	}
 	
 	public void rotateNode() {
+		
+		
 		
 	}
 	

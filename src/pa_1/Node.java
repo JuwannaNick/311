@@ -228,21 +228,12 @@ public class Node {
 		return color;
 	}
 
-	public void setisNil(int a) {
-		if (a == 0) {
-			isNil = true;
-		} else {
-			isNil = false;
-		}
+	public void setisNil(boolean isNil) {
+		this.isNil = isNil;
 	}
 	
-	public void setColor(int n) {
-		if (n == 1) {
-			color = 1;
-		}
-		else {
-			color = 1;
-		}
+	public void setColor(int color) {
+		this.color = color;
 	}
 
 	// Add more functions as you see fit.
