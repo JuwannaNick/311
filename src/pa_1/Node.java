@@ -50,9 +50,9 @@ public class Node {
 
 	}
 
-	public Node(Endpoint e, Node parent) {
+	public Node(Node parent) {
 		this.isNil = true;
-		this.endpoint = e;
+		this.endpoint = null;
 		this.key = 0;
 		this.color = 1;
 		this.size = 0;
