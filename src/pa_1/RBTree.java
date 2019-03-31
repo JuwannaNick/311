@@ -24,7 +24,8 @@ public class RBTree {
 		root = nil;
 		this.root = new Node(null, height, height, false);
 		
-		LinkedList<String> T = new LinkedList<String>();
+		LinkedList<Node> T = new LinkedList<>();
+		T.set(0, root);
 
 	}
 
