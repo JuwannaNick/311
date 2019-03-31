@@ -36,11 +36,15 @@ public class RBTree {
 
 	public Node getRoot() {
 		return this.root;
+		
+		//done
 
 	}
 
 	private void setRoot(Node root) {
 		this.root = root;
+		
+		//done
 	}
 
 	/**
@@ -60,7 +64,8 @@ public class RBTree {
 	 */
 	public int getSize() {
 		// TODO: Modify it accordingly.
-		return T.size();
+		
+		return size;
 	}
 
 	/**
@@ -82,6 +87,12 @@ public class RBTree {
 			nodes.add(node);
 			checkRotate();
 		}
+	}
+	public int size() {
+		
+		
+		return size;
+		
 	}
 
 	private Node rotateRight(Node h) {
@@ -106,19 +117,19 @@ public class RBTree {
         x.setColor(x.getLeft().getColor());
         x.getLeft().setColor(0);
         
+        //need size
         x.size = h.size;
         h.size = size(h.left) + size(h.right) + 1;
         return x;
     }
 
 	public void AddNode() {
-
-	}
-	
-	public int size() {
-		return size;
+		size = size + 1;
 		
 	}
+	
+	
+
 
 	// Add more functions as you see fit.
 }
