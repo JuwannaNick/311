@@ -22,9 +22,6 @@ public class Node {
 	// 0 means red and 1 means black
 	private int color;
 
-	// maintains size of subtree count
-	private int size;
-
 	// stores the Endpoint's Value
 	private int key;
 
@@ -40,26 +37,14 @@ public class Node {
 	// emax endpoint: the side of which max val originates from
 	Endpoint emax;
 
-	public Node(Endpoint e, int color, int size, boolean p) {
+	public Node(Endpoint e, boolean p) {
 		this.isNil = false;
 		this.endpoint = e;
 		this.key = e.getValue();
-		this.color = color;
-		this.size = size;
 		this.p = p;
-
 	}
 
-	public Node(Node parent) {
-		this.isNil = true;
-		this.endpoint = null;
-		this.key = 0;
-		this.color = 1;
-		this.size = 0;
-		this.setParent(parent);
-		this.setLeft(null);
-		this.setRight(null);
-	}
+
 
 	/**
 	 * links the node's left child.
@@ -232,6 +217,9 @@ public class Node {
 		this.isNil = isNil;
 	}
 	
+	public boolean getisNil() {
+		return isNil;
+	}
 	public void setColor(int color) {
 		this.color = color;
 	}

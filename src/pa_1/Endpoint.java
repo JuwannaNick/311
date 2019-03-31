@@ -9,6 +9,12 @@ package pa_1;
  */
 public class Endpoint {
 	int endpoint;
+	
+	public Endpoint(int i) {
+		this.endpoint = i;
+		
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * returns the endpoint value.  For example if the
 	 * End point object represents the left end point of the 
