@@ -8,6 +8,7 @@ import pa_1.Node;
  */
 public class RBTree {
 
+	private int size;
 	private Node root;
 	private Node nil;
 	private Node current;
@@ -20,8 +21,7 @@ public class RBTree {
 
 	// Key-value
 	public RBTree() {
-		
-		root.getLeft() = nil;
+	
 		this.root = new Node(null, height, height, false);
 		root = null;
 		LinkedList<String> T = new LinkedList<String>();
@@ -97,17 +97,27 @@ public class RBTree {
 		h.size = size(h.getLeft()) + size(h.getRight()) + 1;
 		return x;
 	}
+	
+    private Node rotateLeft(Node h) {
+        // assert (h != null) && isRed(h.right);
+        Node x = h.getRight();
+        h.setRight(x.getLeft());
+        x.setLeft(h);
+        x.setColor(x.getLeft().getColor());
+        x.getLeft().setColor(0);
+        
+        x.size = h.size;
+        h.size = size(h.left) + size(h.right) + 1;
+        return x;
+    }
 
-	public void checkRotate() {
+	public void AddNode() {
 
 	}
-
-	public void rotateNode() {
-
-	}
-
-	public void deleteNode() {
-
+	
+	public int size() {
+		return size;
+		
 	}
 
 	// Add more functions as you see fit.
