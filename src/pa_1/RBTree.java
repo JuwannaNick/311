@@ -1,7 +1,6 @@
 package pa_1;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 import pa_1.Node;
 
 /**
@@ -11,17 +10,22 @@ public class RBTree {
 
 	private Node root;
 	private Node nil;
+	private Node current;
 	private int height;
-	private int size;
-	private ArrayList<Node> nodes;
+	private Node left = current.getLeft();
 
 	/**
 	 * RB Tree constructor. It initializes nil node as well.
 	 */
+
+	// Key-value
 	public RBTree() {
-		nil.setisNil(true);
-		nodes =  new ArrayList<Node>();
+		
+		root.getLeft() = nil;
+		this.root = new Node(null, height, height, false);
 		root = null;
+		LinkedList<String> T = new LinkedList<String>();
+
 	}
 
 	/**
@@ -29,10 +33,14 @@ public class RBTree {
 	 * 
 	 * @return
 	 */
-	public Node getRoot() {
-		return root;
 
-		// done
+	public Node getRoot() {
+		return this.root;
+
+	}
+
+	private void setRoot(Node root) {
+		this.root = root;
 	}
 
 	/**
@@ -52,7 +60,7 @@ public class RBTree {
 	 */
 	public int getSize() {
 		// TODO: Modify it accordingly.
-		return nodes.size();
+		return T.size();
 	}
 
 	/**
@@ -62,33 +70,44 @@ public class RBTree {
 	 */
 	public int getHeight() {
 		// TODO: Modify it accordingly.
-		return (int) (Math.log(nodes.size())/Math.log(2.0));
+		return (int) (Math.log(nodes.size()) / Math.log(2.0));
 	}
-	
+
 	public void insertNode(Node node) {
-		if(root == null) {
+		if (root == null) {
 			node.setColor(1);
 			nodes.add(node);
 			root = nodes.get(0);
-		}
-		else {
+		} else {
 			nodes.add(node);
 			checkRotate();
 		}
 	}
-	
+
+	private Node rotateRight(Node h) {
+		// assert (h != null) && isRed(h.left);
+		Node x = h.getLeft();
+		h.setLeft(x.getRight());
+		x.setRight(h);
+		x.setColor(x.getRight().getColor());
+		x.getRight().setColor(0);
+
+		// need size method in Node
+		x.size = h.size;
+		h.size = size(h.getLeft()) + size(h.getRight()) + 1;
+		return x;
+	}
+
 	public void checkRotate() {
-		
+
 	}
-	
+
 	public void rotateNode() {
-		
-		
-		
+
 	}
-	
+
 	public void deleteNode() {
-		
+
 	}
 
 	// Add more functions as you see fit.
