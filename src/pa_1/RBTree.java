@@ -21,9 +21,9 @@ public class RBTree {
 
 	// Key-value
 	public RBTree() {
-	
+		root = nil;
 		this.root = new Node(null, height, height, false);
-		root = null;
+		
 		LinkedList<String> T = new LinkedList<String>();
 
 	}
@@ -55,6 +55,8 @@ public class RBTree {
 	public Node getNILNode() {
 		// TODO: Modify it accordingly.
 		return nil;
+		
+		//done?
 	}
 
 	/**
@@ -75,20 +77,15 @@ public class RBTree {
 	 */
 	public int getHeight() {
 		// TODO: Modify it accordingly.
-		return (int) (Math.log(nodes.size()) / Math.log(2.0));
+		
 	}
-
-	public void insertNode(Node node) {
-		if (root == null) {
-			node.setColor(1);
-			nodes.add(node);
-			root = nodes.get(0);
-		} else {
-			nodes.add(node);
-			checkRotate();
-		}
+	public void AddNode() {
+		
+		size = size + 1;
+		
 	}
-	public int size() {
+	
+	public int returnSize() {
 		
 		
 		return size;
@@ -122,11 +119,28 @@ public class RBTree {
         h.size = size(h.left) + size(h.right) + 1;
         return x;
     }
+    
+    private void changeColors(Node h) {
+    	h.getColor();
+    	if (h.getColor() == 0) {
+    		h.setColor(1);
+    	}
+    	else {
+    		h.setColor(0);
+    	}
+       
+    }
+    public int height() {
+        return height(root);
+    }
+    private int height(Node x) {
+        if (x == null) return -1;
+        return 1 + Math.max(height(x.getLeft()), height(x.getRight()));
+    }
+    
+    //done
 
-	public void AddNode() {
-		size = size + 1;
-		
-	}
+
 	
 	
 
